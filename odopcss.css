@@ -1,0 +1,371 @@
+/* General Reset */
+body, h1, h2, h3, h4, p, a, button {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Remove body background */
+body {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+/* First image - hero section */
+#home {
+  background-image: url('PUB/IMAGE/UK2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+
+
+/* Second image - about section */
+#about {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 60px 20px;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('PUB/IMAGE/WORKER.jpg');
+  background-size: contain;
+  background-position: center;
+  filter: blur(2px); /* Adjust blur level here */
+  z-index: -1;
+}
+
+
+#products {
+  position: relative;
+  padding: 60px 20px;
+  color: black;
+  overflow: hidden;
+}
+
+/* Blurred background image */
+#products::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('PUB/IMAGE/PRODUCT.jpg');
+  background-size: contain;       /* use cover instead of contain for full background */
+  background-position: center;
+  filter: blur(0px);            /* reduce or increase blur here */
+  transform: scale(1.1);        /* scale a bit to hide edges */
+  z-index: 0;
+}
+
+/* Optional semi-transparent overlay to soften background */
+#products::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+/* Ensure content is above the blurred background */
+#products > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+#contact {
+  position: relative;
+  padding: 60px 20px;
+  color: black;
+  overflow: hidden; /* ensure children don’t spill out */
+}
+
+/* Background image copy with blur */
+#contact::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('PUB/IMAGE/CONTACT.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(0px);
+  transform: scale(1.1); /* slightly zoom to avoid edges showing */
+  z-index: 0;
+}
+
+/* Overlay for dimming (optional) */
+#contact::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255,255,255,0.3); /* light white overlay */
+  z-index: 1;
+}
+
+/* Actual content inside #contact */
+#contact > * {
+  position: relative;
+  z-index: 2; /* above the blurred bg and overlay */
+}
+
+
+header {
+  background-color: #2b6777;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+header img.logo {
+  height: 60px;
+  width: 120px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-left: 100px;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ffde59;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.hero {
+  background: url('hero.jpg') no-repeat center center/cover;
+  color: whitesmoke;
+  text-align: center;
+  padding: 180px 0;
+}
+
+.hero h2 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e63e3e;
+}
+
+section {
+  padding: 80px 10%;
+  background-size: cover;
+}
+
+section h2 {
+  text-align: center;
+  color: yellow;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 40px;
+}
+
+#about {
+  color: whitesmoke;
+}
+
+#about p, #about li, #about details.dropdown p {
+  text-align: justify;
+  line-height: 1.8;
+}
+
+#about p:first-of-type {
+  margin-bottom: 40px;
+}
+
+#about details.dropdown:last-of-type {
+  margin-bottom: 40px;
+}
+
+details.dropdown {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+details.dropdown summary {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #2b6777;
+  outline: none;
+  list-style: none;
+}
+
+details.dropdown[open] summary {
+  color: #e63e3e;
+}
+
+details.dropdown p {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Product List */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;  /* Ensures equal gap between all products */
+  justify-items: center;
+  align-items: start;  /* Align products at the top of each grid item */
+  padding-top: 20px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-card h4, .product-card h3 {
+  margin: 10px 0;
+  color: #2b6777;
+}
+
+#contact {
+  color: navy;
+}
+
+#contact label {
+  color: navy;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  color: navy;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #5a5a99;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr;
+    gap: 20px;  /* Ensure there is a gap between products on smaller screens */
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;  /* Ensure there is a gap between products on medium screens */
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;  /* Ensures equal gap between products on large screens */
+  }
+}
